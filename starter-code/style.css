@@ -2,9 +2,9 @@
 
 :root {
 	/* colors */
-	--clr-neutral100: 0 0% 100%;
-	--clr-primary400: 231 77% 90%;
-	--clr-primary800: 230 35% 7%;
+	--clr-neutral: 0 0% 100%;
+	--clr-accent: 231 77% 90%;
+	--clr-primary: 230 35% 7%;
 }
 
 /* Resets */
