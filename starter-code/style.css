@@ -87,3 +87,33 @@ select {
 	white-space: nowrap; /* added line */
 	border: 0;
 }
+
+/* Design System */
+/* colors */
+
+body {
+	background-color: hsl(var(--clr-primary));
+}
+
+.bg-dark {
+	background-color: hsl(var(--clr-primary));
+}
+.bg-accent {
+	background-color: hsl(var(--clr-accent));
+}
+.bg-accent20 {
+	background-color: hsl(var(--clr-accent) / 0.2);
+}
+.bg-neutral {
+	background-color: hsl(var(--clr-neutral));
+}
+
+.text-dark {
+	color: hsl(var(--clr-primary));
+}
+.text-accent {
+	color: hsl(var(--clr-accent));
+}
+.text-neutral {
+	color: hsl(var(--clr-neutral));
+}
