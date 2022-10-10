@@ -81,6 +81,8 @@ body {
 
 	display: grid;
 	grid-template-rows: min-content 1fr;
+
+	overflow: hidden;
 }
 
 img,
@@ -283,9 +285,20 @@ select {
 
 .cta-button:hover,
 .cta-button:focus {
-	box-shadow: 0 0 0 2em hsl(var(--clr-neutral) / 0.2);
+	box-shadow: 0 0 0 2em hsl(var(--clr-neutral) / 0.25);
+}
+
+.logo {
+	margin: 1.5rem clamp(1.5rem, 7vw, 3.5rem);
+}
+
+.primary-header {
+	justify-content: space-between;
+	align-items: center;
+	--gap: 0;
 }
 .primary-navigation {
+	--gap: clamp(1.5rem, 5vw, 4rem);
 	--underline-gap: 2rem;
 	list-style: none;
 	padding: 0;
@@ -299,6 +312,20 @@ select {
 		backdrop-filter: blur(2rem);
 	}
 }
+
+.primary-navigation a {
+	text-decoration: none;
+}
+
+.primary-navigation a > span {
+	font-weight: 700;
+	margin-right: 0.5rem;
+}
+
+.mobile-nav-toggle {
+	display: none;
+}
+
 @media (max-width: 35em) {
 	.primary-navigation {
 		--underline-gap: 0.5rem;
@@ -307,18 +334,59 @@ select {
 		z-index: 1000;
 		padding: min(18rem, 13vh) 3rem;
 		flex-direction: column;
+		transform: translateX(100%);
+		opacity: 0;
+		transition: transform 450ms ease, opacity 450ms ease-in;
 	}
+	.primary-navigation[data-visible="true"] {
+		transform: translateX(0);
+		opacity: 1;
+	}
+
 	.primary-navigation.underline-indicators > .active {
 		border: 0;
 	}
+
+	.mobile-nav-toggle {
+		display: block;
+		position: absolute;
+		z-index: 1001;
+		top: 2rem;
+		right: 2rem;
+		background: transparent;
+		border: 0;
+		background-image: url(./assets/shared/icon-hamburger.svg);
+		background-position: center;
+		background-repeat: no-repeat;
+		width: 2rem;
+		aspect-ratio: 1;
+	}
+
+	.mobile-nav-toggle[aria-expanded="true"] {
+		background-image: url(./assets/shared/icon-close.svg);
+	}
+
+	.mobile-nav-toggle:focus-visible {
+		outline: 5px solid white;
+	}
 }
 
-.primary-navigation a {
-	text-decoration: none;
+@media (min-width: 35em) {
+	.primary-navigation {
+		padding-inline: clamp(2rem, 7vw, 10rem);
+	}
 }
 
-.primary-navigation a > span {
-	font-weight: 700;
+@media (min-width: 35em) and (max-width: 45em) {
+	.primary-navigation a > span {
+		display: none;
+	}
+}
+
+@media (min-width: 45em) {
+	.primary-navigation {
+		margin-block: 2rem;
+	}
 }
 
 .underline-indicators > * {
