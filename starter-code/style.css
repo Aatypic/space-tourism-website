@@ -11,16 +11,33 @@
 	/* fonts */
 	--fs-200: 0.875rem;
 	--fs-300: 1rem;
-	--fs-400: 1.125rem;
+	--fs-400: 0.935rem;
 	--fs-500: 1.75rem;
-	--fs-600: 2rem;
-	--fs-700: 3.5rem;
-	--fs-800: 6.25rem;
-	--fs-900: 9.375rem;
+	--fs-600: 1rem;
+	--fs-700: 1.5rem;
+	--fs-800: 3.5rem;
+	--fs-900: clamp(5rem, 6vw + 1rem, 9.375rem);
 
 	--ff-primary: "Barlow", sans-serif;
 	--ff-accent: "Barlow Condensed", sans-serif;
 	--ff-heading: "Bellefair", serif;
+}
+
+@media (min-width: 35em) {
+	:root {
+		--fs-400: 1rem;
+		--fs-600: 1.5rem;
+		--fs-700: 2.5rem;
+		--fs-800: 5rem;
+	}
+}
+@media (min-width: 45em) {
+	:root {
+		--fs-400: 1.125rem;
+		--fs-600: 2rem;
+		--fs-700: 3.5rem;
+		--fs-800: 6.25rem;
+	}
 }
 /* ----------------- */
 /* Resets            */
@@ -61,6 +78,9 @@ body {
 	font-size: var(--fs-400);
 	background-color: hsl(var(--clr-primary));
 	color: hsl(var(--clr-neutral));
+
+	display: grid;
+	grid-template-rows: min-content 1fr;
 }
 
 img,
@@ -108,6 +128,21 @@ select {
 	padding-inline: 2rem;
 	margin-inline: auto;
 	max-width: 80rem;
+}
+.grid-container {
+	display: grid;
+}
+@media screen and (min-width: 50em) {
+	.grid-container {
+		gap: 2rem;
+		grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
+	}
+	.grid-container > *:first-child {
+		grid-column: 2;
+	}
+	.grid-container > *:not(:first-child) {
+		grid-column: 3;
+	}
 }
 
 .sr-only {
@@ -223,7 +258,7 @@ select {
 .cta-button {
 	text-decoration: none;
 	padding: 0 1.5em;
-	display: grid;
+	display: inline-grid;
 	place-items: center;
 	aspect-ratio: 1;
 	border-radius: 50%;
