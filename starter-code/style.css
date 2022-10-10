@@ -16,7 +16,7 @@
 	--fs-600: 1rem;
 	--fs-700: 1.5rem;
 	--fs-800: 3.5rem;
-	--fs-900: clamp(5rem, 6vw + 1rem, 9.375rem);
+	--fs-900: clamp(5rem, 8vw + 1rem, 9.375rem);
 
 	--ff-primary: "Barlow", sans-serif;
 	--ff-accent: "Barlow Condensed", sans-serif;
@@ -119,6 +119,9 @@ select {
 	display: grid;
 	gap: var(--gap, 1rem);
 }
+.d-block {
+	display: block;
+}
 
 .flow > *:where(:not(:first-child)) {
 	margin-top: var(--flow-space, 1rem);
@@ -131,9 +134,17 @@ select {
 }
 .grid-container {
 	display: grid;
+	text-align: center;
+	place-items: center;
+	padding-inline: 1rem;
 }
-@media screen and (min-width: 50em) {
+.grid-container * {
+	max-width: 55ch;
+}
+
+@media screen and (min-width: 45em) {
 	.grid-container {
+		text-align: left;
 		gap: 2rem;
 		grid-template-columns: minmax(2rem, 1fr) repeat(2, minmax(0, 30rem)) minmax(2rem, 1fr);
 	}
@@ -142,6 +153,10 @@ select {
 	}
 	.grid-container > *:not(:first-child) {
 		grid-column: 3;
+	}
+	.home .grid-container {
+		padding-bottom: max(6rem, 20vh);
+		align-items: end;
 	}
 }
 
@@ -257,6 +272,7 @@ select {
 /* ----------------- */
 .cta-button {
 	text-decoration: none;
+	font-size: 2rem;
 	padding: 0 1.5em;
 	display: inline-grid;
 	place-items: center;
@@ -269,14 +285,34 @@ select {
 .cta-button:focus {
 	box-shadow: 0 0 0 2em hsl(var(--clr-neutral) / 0.2);
 }
-
 .primary-navigation {
-	--gap: 6rem;
 	--underline-gap: 2rem;
 	list-style: none;
 	padding: 0;
 	margin: 0;
+	background: hsl(var(--clr-primary) / 0.95);
 }
+
+@supports (backdrop-filter: blur(2rem)) {
+	.primary-navigation {
+		background: hsl(var(--clr-neutral) / 0.05);
+		backdrop-filter: blur(2rem);
+	}
+}
+@media (max-width: 35em) {
+	.primary-navigation {
+		--underline-gap: 0.5rem;
+		position: fixed;
+		inset: 0 0 0 29%;
+		z-index: 1000;
+		padding: min(18rem, 13vh) 3rem;
+		flex-direction: column;
+	}
+	.primary-navigation.underline-indicators > .active {
+		border: 0;
+	}
+}
+
 .primary-navigation a {
 	text-decoration: none;
 }
@@ -341,4 +377,27 @@ select {
 
 .number-indicators > [aria-selected="true"] {
 	border-color: hsl(var(--clr-neutral) / 1);
+}
+
+/* -------------------- */
+/* Pages backgrounds    */
+/* -------------------- */
+
+body {
+	background-size: cover;
+	background-position: bottom center;
+}
+/* Home */
+.home {
+	background-image: url(./assets/home/background-home-mobile.jpg);
+}
+@media (min-width: 35em) {
+	.home {
+		background-image: url(./assets/home/background-home-tablet.jpg);
+	}
+}
+@media (min-width: 45em) {
+	.home {
+		background-image: url(./assets/home/background-home-desktop.jpg);
+	}
 }
