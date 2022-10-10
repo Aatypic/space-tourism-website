@@ -91,11 +91,7 @@ select {
 /* Design System */
 /* colors */
 
-body {
-	background-color: hsl(var(--clr-primary));
-}
-
-.bg-dark {
+.bg-primary {
 	background-color: hsl(var(--clr-primary));
 }
 .bg-accent {
@@ -108,7 +104,7 @@ body {
 	background-color: hsl(var(--clr-neutral));
 }
 
-.text-dark {
+.text-primary {
 	color: hsl(var(--clr-primary));
 }
 .text-accent {
