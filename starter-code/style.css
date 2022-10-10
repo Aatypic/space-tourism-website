@@ -102,7 +102,6 @@ select {
 
 .flow > *:where(:not(:first-child)) {
 	margin-top: var(--flow-space, 1rem);
-	outline: solid red 1px;
 }
 
 .container {
@@ -259,14 +258,52 @@ select {
 }
 
 .underline-indicators > *:hover,
-.underline-indicators > * :focus {
+.underline-indicators > *:focus {
 	border-color: hsl(var(--clr-neutral) / 0.5);
 }
 
-.underline-indicators > .active {
+.underline-indicators > .active,
+.underline-indicators > [aria-selected="true"] {
+	color: var(--clr-neutral);
 	border-color: hsl(var(--clr-accent) / 1);
 }
 
 .tab-list {
 	--gap: 2rem;
+}
+
+.dot-indicators > * {
+	cursor: pointer;
+	border: 0;
+	border-radius: 50%;
+	aspect-ratio: 1;
+	padding: 0.5rem;
+	background-color: hsl(var(--clr-neutral) / 0.2);
+}
+
+.dot-indicators > *:hover,
+.dot-indicators > *:focus {
+	background-color: hsl(var(--clr-neutral) / 0.5);
+}
+
+.dot-indicators > [aria-selected="true"] {
+	background-color: hsl(var(--clr-neutral) / 1);
+}
+
+.number-indicators > * {
+	cursor: pointer;
+	display: inline-block;
+	padding: 0 1.5rem;
+	border-radius: 50%;
+	aspect-ratio: 1;
+	border: 0.115rem solid hsl(var(--clr-neutral) / 0.5);
+}
+
+.number-indicators > *:hover,
+.number-indicators > *:focus {
+	border-color: hsl(var(--clr-neutral) / 1);
+}
+
+.number-indicators > [aria-selected="true"] {
+	border-color: hsl(var(--clr-neutral) / 1);
 }
