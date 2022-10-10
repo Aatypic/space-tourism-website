@@ -5,6 +5,20 @@
 	--clr-neutral: 0 0% 100%;
 	--clr-accent: 231 77% 90%;
 	--clr-primary: 230 35% 7%;
+
+	/* fonts */
+	--fs-200: 0.875rem;
+	--fs-300: 1rem;
+	--fs-400: 1.125rem;
+	--fs-500: 1.75rem;
+	--fs-600: 2rem;
+	--fs-700: 3.5rem;
+	--fs-800: 6.25rem;
+	--fs-900: 9.375rem;
+
+	--ff-primary: "Barlow", sans-serif;
+	--ff-accent: "Barlow Condensed", sans-serif;
+	--ff-headings: "Bellefair", serif;
 }
 
 /* Resets */
@@ -28,25 +42,27 @@ dl,
 dd {
 	margin: 0;
 }
-html:focus-within {
-	scroll-behavior: smooth;
-}
+
 body {
 	min-height: 100vh;
-	text-rendering: optimizeSpeed;
 	line-height: 1.5;
+	font-family: var(--ff-primary);
+	font-size: var(--fs-400);
 }
+
 img,
 picture {
 	max-width: 100%;
 	display: block;
 }
+
 input,
 button,
 textarea,
 select {
 	font: inherit;
 }
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,
@@ -89,8 +105,8 @@ select {
 }
 
 /* Design System */
-/* colors */
 
+/* colors */
 .bg-primary {
 	background-color: hsl(var(--clr-primary));
 }
@@ -113,3 +129,5 @@ select {
 .text-neutral {
 	color: hsl(var(--clr-neutral));
 }
+
+/* fonts */
