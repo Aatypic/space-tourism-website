@@ -188,3 +188,13 @@ select {
 .fs-900 {
 	line-height: 1.1;
 }
+
+.letter-spacing-1 {
+	letter-spacing: 4.75px;
+}
+.letter-spacing-2 {
+	letter-spacing: 2.7px;
+}
+.letter-spacing-3 {
+	letter-spacing: 2.35px;
+}
