@@ -198,3 +198,15 @@ select {
 .letter-spacing-3 {
 	letter-spacing: 2.35px;
 }
+
+.numbered-title {
+	font-family: var(--ff-accent);
+	font-size: var(--fs-500);
+	text-transform: uppercase;
+	letter-spacing: 4.72px;
+}
+.numbered-title span {
+	margin-right: 0.5em;
+	color: hsl(var(--clr-neutral) / 0.25);
+	font-weight: 700;
+}
