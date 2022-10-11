@@ -657,8 +657,8 @@ body {
 	.grid-container--crew > .dot-indicators {
 		justify-self: start;
 	}
-	.grid-container--crew > picture {
+	/* .grid-container--crew > picture {
 		max-width: 100%;
 		justify-self: end;
-	}
+	} */
 }
