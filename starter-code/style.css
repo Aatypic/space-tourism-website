@@ -665,3 +665,7 @@ body {
 		justify-self: end;
 	} */
 }
+
+[role="tab"]:focus {
+	color: lime;
+}
