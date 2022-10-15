@@ -44,6 +44,9 @@
 /* ----------------- */
 /* Resets            */
 /* ----------------- */
+html {
+	scrollbar-gutter: stable both-edges;
+}
 *,
 *::before,
 *::after {
@@ -544,6 +547,7 @@ body {
 .grid-container--destination > picture {
 	grid-area: image;
 	max-width: 60%;
+	align-self: start;
 }
 .grid-container--destination > .tab-list {
 	grid-area: tabs;
@@ -603,7 +607,6 @@ body {
 
 	.grid-container--crew {
 		padding-bottom: 0;
-		--flow-space: 2rem;
 		grid-template-areas:
 			"title"
 			"content"
@@ -651,7 +654,6 @@ body {
 
 	/* Crew layout */
 	.grid-container--crew {
-		--flow-space: 2rem;
 		grid-template-areas:
 			". title title ."
 			". content image ."
@@ -664,8 +666,4 @@ body {
 		max-width: 100%;
 		justify-self: end;
 	} */
-}
-
-[role="tab"]:focus {
-	color: lime;
 }
