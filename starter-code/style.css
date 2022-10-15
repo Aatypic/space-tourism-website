@@ -654,6 +654,7 @@ body {
 
 	/* Crew layout */
 	.grid-container--crew {
+		grid-template-columns: minmax(1rem, 1fr) minmax(0, 37rem) minmax(0, 23rem) minmax(1rem, 1fr);
 		grid-template-areas:
 			". title title ."
 			". content image ."
@@ -662,8 +663,9 @@ body {
 	.grid-container--crew > .dot-indicators {
 		justify-self: start;
 	}
-	/* .grid-container--crew > picture {
+	.grid-container--crew > picture {
+		grid-column: span 2;
 		max-width: 100%;
-		justify-self: end;
-	} */
+		align-self: end;
+	}
 }
